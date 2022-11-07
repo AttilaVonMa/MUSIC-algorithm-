@@ -1,4 +1,5 @@
 import numpy as np
+import numpy as nptwo
 from matplotlib import pyplot as plt
 from matplotlib.animation import FuncAnimation
 
@@ -9,8 +10,6 @@ def wgn(signal,snr):
     Ps = np.sum(np.power(x, 2)) / len_x
     Pn = Ps / (np.power(10, snr / 10))
     noise = np.random.randn(len_x) * np.sqrt(Pn)
-    
-    
     return signal + noise
     
     
@@ -26,11 +25,10 @@ def init():
     line.set_data([], [])
     return line,
 def animate(i):
-    x = np.linspace(0, 4, 1000)
-    primer= np.cos(2 * np.pi * (x - 0.01 * i))
+    x = nptwo.linspace(0, 4, 1000)
+    primer= nptwo.cos(2 * np.pi * (x - 0.01 * i))
     snr =1
-    y=wgn(primer, snr)
-  
+    y=wgn(primer, snr) 
     line.set_data(x, y)
     return line,
 
