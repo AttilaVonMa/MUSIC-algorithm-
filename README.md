@@ -1,2 +1,2 @@
 # MUSIC-algorithm-
-Thr project is about Music algorithm animation 
+Thr project is a sample about Music algorithm animation 
