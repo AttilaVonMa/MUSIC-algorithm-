@@ -1,25 +1,20 @@
+mport matplotlib.pyplot as plt
 import numpy as np
-from matplotlib import pyplot as plt
-from matplotlib.animation import FuncAnimation
-plt.style.use('seaborn-pastel')
+import time
+from math import *
 
+plt.ion() 
+plt.figure(1)
+t = [0]
+t_now = 0
+m = [sin(t_now)]
 
-fig = plt.figure()
-ax = plt.axes(xlim=(0, 4), ylim=(-2, 2))
-line, = ax.plot([], [], lw=3)
-
-def init():
-    line.set_data([], [])
-    return line,
-def animate(i):
-    x = np.linspace(0, 4, 1000)
-    y = np.sin(2 * np.pi * (x - 0.01 * i))
-    line.set_data(x, y)
-    return line,
-
-anim = FuncAnimation(fig, animate, init_func=init,
-                               frames=200, interval=20, blit=True)
-
-
-anim.save('sine_wave.gif', writer='imagemagick')
+for i in range(2000):
+	plt.clf() 
+    t_now = i*0.1
+    t.append(t_now)
+    m.append(sin(t_now))
+    plt.plot(t,m,'-r')
+    plt.draw()
+    time.sleep(0.01)
 
