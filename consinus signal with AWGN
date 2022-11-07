@@ -27,7 +27,7 @@ def init():
     return line,
 def animate(i):
     x = np.linspace(0, 4, 1000)
-    primer= np.sin(2 * np.pi * (x - 0.01 * i))
+    primer= np.cos(2 * np.pi * (x - 0.01 * i))
     snr =1
     y=wgn(primer, snr)
   
